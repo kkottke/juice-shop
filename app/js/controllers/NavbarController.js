@@ -4,7 +4,9 @@ angular.module('juiceShop').controller('NavbarController', [
   function ($scope, administrationService) {
     'use strict'
 
-    $scope.version = ''
+    $scope.version = '';
+
+    $scope.juiceName = (localStorage && localStorage.team) ? localStorage.team : 'OWASP';
 
     administrationService.getApplicationVersion().success(function (data) {
       if (data && data.version) {

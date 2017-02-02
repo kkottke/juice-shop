@@ -63,7 +63,7 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid" ng-controller="NavbarController">
         <div class="navbar-header">
-            <a href="#/"><img class="navbar-brand navbar-logo" src="/public/images/JuiceShop_Logo.svg" alt="Juice Shop Logo"></a><a class="navbar-brand" href="#/">OWASP Juice Shop <small ng-bind="version"></small></a>
+            <a href="#/"><img class="navbar-brand navbar-logo" src="/public/images/JuiceShop_Logo.svg" alt="Juice Shop Logo"></a><a class="navbar-brand" href="#/">{{ juiceName }} Juice Shop <small ng-bind="version"></small></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li class="dropdown" ng-show="!isLoggedIn()">
@@ -134,17 +134,14 @@
 <h1 class="hidden">OWASP Juice Shop</h1><!-- for SEO -->
 
 <div class="container" ng-controller="ChallengeSolvedNotificationController">
-    <div uib-alert ng-repeat="notification in notifications" ng-class="'alert alert-success'" close="closeNotification($index)">{{notification.message}}</div>
+    <div uib-alert ng-repeat="notification in notifications" ng-class="'alert alert-success'" close="closeNotification($index)">
+        {{notification.message}}<br/>
+        Flag: <b>{{notification.flag}}</b>
+    </div>
 </div>
 
 <!-- CONTENT -->
 <div class="container-fluid" ng-view></div>
-
-<div class="github-fork-ribbon-wrapper right">
-    <div class="github-fork-ribbon">
-        <a href="/redirect?to=https://github.com/bkimminich/juice-shop" target="_blank" translate="RIBBON_GITHUB_FORK" translate-value-fork='<i class="fa fa-code-fork"></i>' translate-value-github='<i class="fa fa-github"></i> GitHub'></a>
-    </div>
-</div>
 
 </body>
 </html>
