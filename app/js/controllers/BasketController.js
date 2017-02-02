@@ -3,8 +3,9 @@ angular.module('juiceShop').controller('BasketController', [
   '$sce',
   '$window',
   '$translate',
+  '$uibModal',
   'BasketService',
-  function ($scope, $sce, $window, $translate, basketService) {
+  function ($scope, $sce, $window, $translate, $uibModal, basketService) {
     'use strict'
 
     $scope.couponCollapsed = true
@@ -74,6 +75,22 @@ angular.module('juiceShop').controller('BasketController', [
         })
       }).error(function (err) {
         console.log(err)
+      })
+    }
+
+    $scope.showBitcoinQrCode = function () {
+      $uibModal.open({
+        templateUrl: 'views/BitcoinQrCode.html',
+        controller: 'QrCodeController',
+        size: 'md'
+      })
+    }
+
+    $scope.showDashQrCode = function () {
+      $uibModal.open({
+        templateUrl: 'views/DashQrCode.html',
+        controller: 'QrCodeController',
+        size: 'md'
       })
     }
   }])

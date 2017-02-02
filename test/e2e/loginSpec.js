@@ -28,7 +28,7 @@ describe('/#/login', function () {
       expect(browser.getLocationAbsUrl()).toMatch(/\/search/)
     })
 
-    protractor.expect.challengeSolved({challenge: 'loginAdmin'})
+    protractor.expect.challengeSolved({challenge: 'Login Admin'})
   })
 
   describe('challenge "loginJim"', function () {
@@ -40,7 +40,7 @@ describe('/#/login', function () {
       expect(browser.getLocationAbsUrl()).toMatch(/\/search/)
     })
 
-    protractor.expect.challengeSolved({challenge: 'loginJim'})
+    protractor.expect.challengeSolved({challenge: 'Login Jim'})
   })
 
   describe('challenge "loginBender"', function () {
@@ -52,7 +52,7 @@ describe('/#/login', function () {
       expect(browser.getLocationAbsUrl()).toMatch(/\/search/)
     })
 
-    protractor.expect.challengeSolved({challenge: 'loginBender'})
+    protractor.expect.challengeSolved({challenge: 'Login Bender'})
   })
 
   describe('challenge "adminCredentials"', function () {
@@ -64,7 +64,19 @@ describe('/#/login', function () {
       expect(browser.getLocationAbsUrl()).toMatch(/\/search/)
     })
 
-    protractor.expect.challengeSolved({challenge: 'adminCredentials'})
+    protractor.expect.challengeSolved({challenge: 'Password Strength'})
+  })
+
+  describe('challenge "loginSupport"', function () {
+    it('should be able to log in with original support-team credentials', function () {
+      email.sendKeys('support@juice-sh.op')
+      password.sendKeys('J6aVjTgOpRs$?5l+Zkq2AYnCE@RF§P')
+      loginButton.click()
+
+      expect(browser.getLocationAbsUrl()).toMatch(/\/search/)
+    })
+
+    protractor.expect.challengeSolved({challenge: 'Login Support Team'})
   })
 
   describe('challenge "oauthUserPassword"', function () {
@@ -76,7 +88,7 @@ describe('/#/login', function () {
       expect(browser.getLocationAbsUrl()).toMatch(/\/search/)
     })
 
-    protractor.expect.challengeSolved({challenge: 'oauthUserPassword'})
+    protractor.expect.challengeSolved({challenge: 'Login Bjoern'})
   })
 
   describe('challenge "loginCiso"', function () {
@@ -93,6 +105,6 @@ describe('/#/login', function () {
       loginButton.click()
     })
 
-    protractor.expect.challengeSolved({challenge: 'loginCiso'})
+    protractor.expect.challengeSolved({challenge: 'Login CISO'})
   })
 })

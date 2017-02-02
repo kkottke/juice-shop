@@ -7,17 +7,16 @@ describe('/#/score-board', function () {
       expect(browser.getLocationAbsUrl()).toMatch(/\/score-board/)
     })
 
-    protractor.expect.challengeSolved({challenge: 'scoreBoard'})
+    protractor.expect.challengeSolved({challenge: 'Score Board'})
   })
 
   describe('challenge "continueCode"', function () {
     it('should be possible to solve the non-existent challenge #99', function () {
+      browser.executeScript('document.cookie="continueCode=69OxrZ8aJEgxONZyWoz1Dw4BvXmRGkKgGe9M7k2rK63YpqQLPjnlb5V5LvDj"')
       browser.get('/#/score-board')
-      element(by.id('collapseContinueButton')).click()
-      element(by.model('continueCode')).sendKeys('69OxrZ8aJEgxONZyWoz1Dw4BvXmRGkKgGe9M7k2rK63YpqQLPjnlb5V5LvDj')
       element(by.id('restoreProgressButton')).click()
     })
 
-    protractor.expect.challengeSolved({challenge: 'continueCode'})
+    protractor.expect.challengeSolved({challenge: 'Imaginary Challenge'})
   })
 })

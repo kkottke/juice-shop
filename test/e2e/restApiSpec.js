@@ -17,13 +17,13 @@ describe('/rest', function () {
                   alert.accept()
 
                   browser.ignoreSynchronization = true
-                  browser.executeScript('var $http = angular.injector([\'juiceShop\']).get(\'$http\'); $http.put(\'/api/Products/19\', {description: \'alert disabled\'});')
+                  browser.executeScript('var $http = angular.injector([\'juiceShop\']).get(\'$http\'); $http.put(\'/api/Products/20\', {description: \'alert disabled\'});')
                   browser.driver.sleep(1000)
                   browser.ignoreSynchronization = false
                 })
     })
 
-    protractor.expect.challengeSolved({challenge: 'xss3'})
+    protractor.expect.challengeSolved({challenge: 'XSS Tier 3'})
   })
 
   describe('challenge "changeProduct"', function () {
@@ -35,6 +35,6 @@ describe('/rest', function () {
       browser.get('/#/search')
     })
 
-    protractor.expect.challengeSolved({challenge: 'changeProduct'})
+    protractor.expect.challengeSolved({challenge: 'Product Tampering'})
   })
 })
